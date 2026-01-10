@@ -1,0 +1,125 @@
+export enum DURATION {
+  SECONDS = 1_000,
+  MINUTES = 60 * SECONDS,
+  HOURS = 60 * MINUTES,
+  DAYS = 24 * HOURS,
+}
+
+export enum AppEnv {
+  PRODUCTION = 'production',
+  STAGING = 'staging',
+  DEVELOPMENT = 'development',
+  TEST = 'test',
+}
+
+export enum Role {
+  ADMIN = 'admin',
+  USER = 'user',
+}
+
+export enum SettingType {
+  TEXT = 'text',
+  NUMBER = 'number',
+  FLOAT = 'float',
+  BOOLEAN = 'boolean',
+  OBJECT = 'object',
+  ARRAY = 'array',
+}
+
+export enum GeneratedOtpEnum {
+  VERIFY_PHONE = 'verify_phone',
+  RESET_PASSWORD = 'reset_password',
+  RESET_PASSCODE = 'reset-passcode',
+  UPDATE_TRANACTION_PIN = 'update-transcation-pin',
+  CHANGE_EMAIL = 'change_email',
+  CHANGE_PHONE_NUMBER = 'change_phone_number',
+  DELETE_USER_ACCOUNT = 'delete-user-account',
+  UNRECOGNIZED_DEVICE = 'unrecognized-device',
+}
+
+export enum SettingsKey {
+  GLOBAL_RATE_LIMIT_MAX_ATTEMPT = 'global_rate_limit_max_attempt',
+  RATE_LIMIT_MIDDLEWARE_MAX_ATTEMPT = 'rate_limit_middleware_max_attempt',
+  RATE_LIMIT_MIDDLEWARE_TTL = 'rate_limit_middleware_ttl',
+  USER_NOTIFICATION_UNDER_MAINTENANCE = 'user_notification_under_maintenance',
+  PHONE_NUMBERS_TO_EXEMPT_FROM_LOGIN_OTP = 'phone_numbers_to_exempt_from_login_otp',
+}
+
+// actions.ts
+
+/**
+ * A strongly typed, frozen constant object representing all system actions.
+ * Keys and values are identical to provide strict, immutable action identifiers.
+ */
+
+export enum ACTIONS {
+  // --- Onboarding & Authentication ---
+  REGISTER = 'REGISTER',
+  LOGIN = 'LOGIN',
+  LOGOUT = 'LOGOUT',
+  FORGOT_PASSWORD = 'FORGOT_PASSWORD',
+  RESET_PASSWORD = 'RESET_PASSWORD',
+  CHANGE_PASSWORD = 'CHANGE_PASSWORD',
+  VERIFY_EMAIL = 'VERIFY_EMAIL',
+  VERIFY_PHONE = 'VERIFY_PHONE',
+  UPDATE_PROFILE = 'UPDATE_PROFILE',
+  COMPLETE_PROFILE = 'COMPLETE_PROFILE',
+  KYC_SUBMISSION = 'KYC_SUBMISSION',
+  KYC_APPROVAL = 'KYC_APPROVAL',
+  KYC_REJECTION = 'KYC_REJECTION',
+  TIER_ONE_UPGRADE = 'TIER_ONE_UPGRADE',
+  TIER_TWO_UPGRADE = 'TIER_TWO_UPGRADE',
+  TIER_THREE_UPGRADE = 'TIER_THREE_UPGRADE',
+
+  // --- Account & User Management ---
+  CREATE_ACCOUNT = 'CREATE_ACCOUNT',
+  CLOSE_ACCOUNT = 'CLOSE_ACCOUNT',
+  FREEZE_ACCOUNT = 'FREEZE_ACCOUNT',
+  UNFREEZE_ACCOUNT = 'UNFREEZE_ACCOUNT',
+  ACCOUNT_BALANCE_CHECK = 'ACCOUNT_BALANCE_CHECK',
+  LINK_CARD = 'LINK_CARD',
+  UNLINK_CARD = 'UNLINK_CARD',
+
+  // --- Transactions ---
+  DEPOSIT = 'DEPOSIT',
+  WITHDRAWAL = 'WITHDRAWAL',
+  TRANSFER = 'TRANSFER',
+  INTERNAL_TRANSFER = 'INTERNAL_TRANSFER',
+  EXTERNAL_TRANSFER = 'EXTERNAL_TRANSFER',
+  BILL_PAYMENT = 'BILL_PAYMENT',
+  AIRTIME_PURCHASE = 'AIRTIME_PURCHASE',
+  DATA_BUNDLE_PURCHASE = 'DATA_BUNDLE_PURCHASE',
+  CABLE_TV_PAYMENT = 'CABLE_TV_PAYMENT',
+  ELECTRICITY_PAYMENT = 'ELECTRICITY_PAYMENT',
+  SCHOOL_FEES_PAYMENT = 'SCHOOL_FEES_PAYMENT',
+  TAX_PAYMENT = 'TAX_PAYMENT',
+  MERCHANT_PAYMENT = 'MERCHANT_PAYMENT',
+
+  // --- Savings & Loans ---
+  CREATE_SAVINGS_PLAN = 'CREATE_SAVINGS_PLAN',
+  UPDATE_SAVINGS_PLAN = 'UPDATE_SAVINGS_PLAN',
+  DELETE_SAVINGS_PLAN = 'DELETE_SAVINGS_PLAN',
+  WITHDRAW_SAVINGS = 'WITHDRAW_SAVINGS',
+  APPLY_LOAN = 'APPLY_LOAN',
+  APPROVE_LOAN = 'APPROVE_LOAN',
+  REJECT_LOAN = 'REJECT_LOAN',
+  DISBURSE_LOAN = 'DISBURSE_LOAN',
+  REPAY_LOAN = 'REPAY_LOAN',
+  LOAN_DEFAULT = 'LOAN_DEFAULT',
+
+  // --- Bounties, Rewards & Referrals ---
+  BOUNTY_CREATED = 'BOUNTY_CREATED',
+  BOUNTY_COMPLETED = 'BOUNTY_COMPLETED',
+  REFERRAL_BONUS = 'REFERRAL_BONUS',
+  LOYALTY_REWARD = 'LOYALTY_REWARD',
+  POINTS_REDEEMED = 'POINTS_REDEEMED',
+
+  // --- Admin & System Actions ---
+  ADMIN_CREATE_USER = 'ADMIN_CREATE_USER',
+  ADMIN_UPDATE_USER = 'ADMIN_UPDATE_USER',
+  ADMIN_DELETE_USER = 'ADMIN_DELETE_USER',
+  SYSTEM_MAINTENANC = 'SYSTEM_MAINTENANCE',
+  SYSTEM_ALERT = 'SYSTEM_ALERT',
+  AUDIT_LOG_CREATED = 'AUDIT_LOG_CREATED',
+  RATE_LIMIT_TRIGGERED = 'RATE_LIMIT_TRIGGERED',
+}
