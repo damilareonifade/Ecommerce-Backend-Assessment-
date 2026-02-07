@@ -1,6 +1,8 @@
 import { UserRole } from 'src/roles/entities/user-role.entity';
 import { Entity, Column, PrimaryColumn, OneToMany } from 'typeorm';
 import { ulid } from 'ulid';
+import { Cart } from '../../cart/entities/cart.entity';
+import { Order } from '../../order/entities/order.entity';
 
 @Entity()
 export class User {
@@ -24,6 +26,12 @@ export class User {
 
   @OneToMany(() => UserRole, (userRole) => userRole.user)
   roles: UserRole[];
+
+  @OneToMany(() => Cart, (cart) => cart.user)
+  carts: Cart[];
+
+  @OneToMany(() => Order, (order) => order.user)
+  orders: Order[];
 
   @Column({ type: 'boolean', default: false, nullable: true })
   email_verified: boolean;

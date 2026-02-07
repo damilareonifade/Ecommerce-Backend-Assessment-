@@ -1,7 +1,6 @@
 import { DataSource } from 'typeorm';
 import { config } from 'dotenv';
 
-// Load environment variables
 config({ path: `.env.${process.env.NODE_ENV || 'development'}` });
 
 export default new DataSource({
@@ -11,7 +10,7 @@ export default new DataSource({
   username: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME || 'testing_waters',
-  entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+  entities: [__dirname + '/../**/*.{entity,entities}{.ts,.js}'],
   migrations: [__dirname + '/migrations/*{.ts,.js}'],
   migrationsRun: true,
   migrationsTableName: 'migrations',

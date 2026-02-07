@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe, VersioningType } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { writeFileSync } from 'fs';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -18,11 +19,11 @@ async function bootstrap() {
   // Enable global validation
   app.useGlobalPipes(
     new ValidationPipe({
-      whitelist: true, // Strip properties that don't have decorators
-      forbidNonWhitelisted: true, // Throw error if non-whitelisted properties exist
-      transform: true, // Automatically transform payloads to DTO instances
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
       transformOptions: {
-        enableImplicitConversion: true, // Convert types automatically
+        enableImplicitConversion: true,
       },
     }),
   );
@@ -35,6 +36,7 @@ async function bootstrap() {
     .build();
 
   const mainDocument = SwaggerModule.createDocument(app, mainOptions);
+  writeFileSync('./swagger.json', JSON.stringify(mainDocument, null, 2));
   SwaggerModule.setup(`${prefix}/docs`, app, mainDocument, {
     swaggerOptions: { url: `/${prefix}/docs-json` },
   });
