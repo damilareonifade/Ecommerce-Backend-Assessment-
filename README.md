@@ -95,4 +95,4 @@ API available at: `http://localhost:8000/api/v1`
 - **Transactional Script**: `OrderService` manages complex atomic operations via `QueryRunner`.
 
 ---
-**Author**: Damilare Onifade / Google Deepmind Assistant
+**Author**: Damilare Onifade
