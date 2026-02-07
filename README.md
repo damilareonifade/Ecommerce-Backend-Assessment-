@@ -1,4 +1,4 @@
-# NestJS E-Commerce API (Testing Waters)
+# NestJS E-Commerce API (Ecommerce assessment)
 
 A robust, enterprise-grade E-Commerce API built with **NestJS**, **TypeORM**, and **MySQL**.
 
